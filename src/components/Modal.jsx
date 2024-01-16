@@ -1,9 +1,13 @@
 import React from 'react'
 import CerrarBtn from '../img/cerrar.svg'
-
+import { useState } from 'react'
 
 
 const Modal = ({setModal,animarModal,setAnimarModal}) => {
+
+    const [nombre, setNombre ] =useState('')
+    const [cantidad, setCantidad ] =useState('')
+    const [categoria, setCategoria ] =useState('')
 
     const ocultarModal = () => {
         setModal(false)
@@ -27,11 +31,14 @@ const Modal = ({setModal,animarModal,setAnimarModal}) => {
         <form className={`formulario ${animarModal ? 'animar' : 'cerrar'}`}>
           <legend>Nuevo Gasto</legend>
           <div className='campo'>
-            <label htmlFor="nombre">Nombre del Gasto</label>
+            <label htmlFor="nombre">Nombre Gasto</label>
             <input 
             type="text"
             id='nombre'
-            placeholder='Añade el gasto del gasto ej. 300' />
+            placeholder='Añade el gasto del gasto ej. 300' 
+            value={nombre}
+            onChange={e => setNombre(e.target.value)}
+            />
 
           </div>
           <div className='campo'>
@@ -39,21 +46,26 @@ const Modal = ({setModal,animarModal,setAnimarModal}) => {
             <input 
             type="text"
             id='nombre'
-            placeholder='Añade la cantidad del gasto ej. 300' />
+            placeholder='Añade la cantidad del gasto ej. 300'
+            value={cantidad} 
+            onChange={e => setCantidad(Number(e.target.value))}/>
 
           </div>
           <div className='campo'>
             <label htmlFor="nombre">Categoria</label>
             <select 
-            id="categoria">
+            id="categoria"
+            value={categoria} 
+            onChange={e => setCategoria(e.target.value)}
+            >
               <option value="">Seleccione</option>
               <option value="ahorro">Ahorro</option>
-              <option value="ahorro">Comida</option>
-              <option value="ahorro">Casa</option>
-              <option value="ahorro">Gastos Varios</option>
-              <option value="ahorro">Ocio</option>
-              <option value="ahorro">Salud</option>
-              <option value="ahorro">Subscripciones</option>
+              <option value="comida">Comida</option>
+              <option value="casa">Casa</option>
+              <option value="gastos">Gastos Varios</option>
+              <option value="ocio">Ocio</option>
+              <option value="salud">Salud</option>
+              <option value="subscripciones">Subscripciones</option>
 
             </select>
 
