@@ -25,31 +25,32 @@ const Modal = ({setModal,
     const handleSubmit = e => {
       e.preventDefault()
 
-      if([nombre,cantidad,categoria].includes('')) {
+      if([nombre, cantidad, categoria].includes('')) {
         setMensaje('Todos los campos son obligatorios')
+
         setTimeout(() => {
           setMensaje('')
         }, 3000);
         return
       }
-      guardarGasto({nombre,cantidad,categoria})
+      guardarGasto({nombre, cantidad, categoria})
     }
 
 
   return (
     <div className='modal'>
         <div className='cerrar-modal'>
-            <img src={CerrarBtn} 
+            <img 
+            src={CerrarBtn} 
             alt="cerrar modal"
             onClick={ocultarModal}
-            />
-            
+            />    
         </div>
         <form
-        onSubmit={handleSubmit}
-        className={`formulario ${animarModal ? 'animar' : 'cerrar'}`}>
-          <legend>Nuevo Gasto</legend>
-          {mensaje && <Mensaje tipo='error'>{mensaje}</Mensaje>}
+          onSubmit={handleSubmit}
+          className={`formulario ${animarModal ? 'animar' : 'cerrar'}`}>
+            <legend>Nuevo Gasto</legend>
+            {mensaje && <Mensaje tipo='error'>{mensaje}</Mensaje>}
           <div className='campo'>
             <label htmlFor="nombre">Nombre Gasto</label>
             <input 
@@ -59,8 +60,8 @@ const Modal = ({setModal,
             value={nombre}
             onChange={e => setNombre(e.target.value)}
             />
-
           </div>
+
           <div className='campo'>
             <label htmlFor="nombre">Cantidad</label>
             <input 
@@ -69,7 +70,6 @@ const Modal = ({setModal,
             placeholder='Añade la cantidad del gasto ej. 300'
             value={cantidad} 
             onChange={e => setCantidad(Number(e.target.value))}/>
-
           </div>
           <div className='campo'>
             <label htmlFor="nombre">Categoria</label>
@@ -86,9 +86,7 @@ const Modal = ({setModal,
               <option value="ocio">Ocio</option>
               <option value="salud">Salud</option>
               <option value="subscripciones">Subscripciones</option>
-
             </select>
-
           </div>
           <input type="submit" 
           value= 'añadir gasto'/>

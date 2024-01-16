@@ -1,10 +1,19 @@
 import React from 'react'
 
-const Gasto = () => {
+const Gasto = ({gasto}) => {
+    const {categoria, nombre, cantidad, id} = gasto
   return (
-    <div>
-        <p>desde Gasto</p>
+    <div className='gasto sombra'>
+        <div className='contenido-gasto'>
+            <div className='descripcion-gasto'>
+                <p className='categoria'>{categoria}</p>
+                <p className='nombre-gasto'>{nombre}</p>
+
+            </div>
+
+        </div>
     </div>
+    
   )
 }
 
