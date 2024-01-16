@@ -4,15 +4,14 @@ import Header from './components/Header'
 import NuevoPresupuesto from './components/NuevoPresupuesto'
 import IconoNuevoGasto from './img/nuevo-gasto.svg'
 import Modal from './components/Modal'
+import { generarId } from './components/helpers'
 
 function App() {
 
   const [presupuesto, setPresupuesto] = useState(0)
   const [isValidPresupuesto, setIsValidPresupuesto] = useState(false)
-
   const [modal, setModal] = useState(false)
   const [animarModal, setAnimarModal] = useState(false)
-
   const [gastos, setGastos] =useState([])
   
   const handleNuevoGasto = () => {
@@ -24,7 +23,13 @@ function App() {
   }
 
   const guardarGasto = gasto  => {
-    console.log(gasto)
+    gasto.id = generarId()
+    setGastos([...gastos, gasto])
+
+    setAnimarModal(false)
+    setTimeout(() => {
+      setModal(false)
+    }, 500);
   }
 
   return (
