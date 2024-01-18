@@ -13,6 +13,6 @@ export const formatearFecha = fecha => {
     month: 'long',
     day: '2-digit'
   }
-  console.log(fecha);
+  // console.log(fecha);
   return fechaNueva.toLocaleDateString('es-ES', opciones)
 }
