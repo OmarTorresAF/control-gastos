@@ -1,7 +1,7 @@
 import React from 'react'
 import Gasto  from './Gasto'
 
-export const ListadoGastos = ({gastos, setGastoEditar}) => {
+export const ListadoGastos = ({gastos, setGastoEditar, eliminarGasto}) => {
   return (
     <div className='listado-gastos contenedor'>
         <h2>{gastos.length ? 'Gastos' : 'No hay gastos aun'}</h2>
@@ -11,6 +11,7 @@ export const ListadoGastos = ({gastos, setGastoEditar}) => {
             key={gasto.id}
             gasto={gasto}
             setGastoEditar={setGastoEditar}
+            eliminarGasto={eliminarGasto}
             />
         ))}
     </div>
