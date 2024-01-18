@@ -87,7 +87,7 @@ useEffect(() => {
   const eliminarGasto = id => {
     const gastosActualizados = gastos.filter(gasto => gasto.id !== id)
 
-    setGastos(gastosActualizados);
+    setGastos(gastosActualizados)
   }
 
   return (
@@ -95,6 +95,7 @@ useEffect(() => {
     
     <Header
     gastos={gastos}
+    setGastos={setGastos}
     presupuesto={presupuesto}
     setPresupuesto={setPresupuesto}
     isValidPresupuesto={isValidPresupuesto}
